@@ -13,3 +13,7 @@ block content
   p Welcome to my webpage #{title}
   p Welcome to my webpage #{title}
 
+  form(action="/", method="POST")
+    input(type="email", placeholder="Enter your email address")
+    button(type="submit") Submit
+
