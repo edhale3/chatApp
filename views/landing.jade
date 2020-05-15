@@ -1,19 +1,12 @@
 extends layout
 
+script(src="landing.js")
+
 block content
   h1= title
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
-  p Welcome to my webpage #{title}
+  h2= message
 
   form(action="/", method="POST")
-    input(type="email", placeholder="Enter your email address")
-    button(type="submit") Submit
+    input(name="chat_message" type="text", placeholder="Text Message")
+    button(type="submit") Send It
 
