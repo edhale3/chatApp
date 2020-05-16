@@ -1,6 +1,6 @@
 module.exports = {
   "development": {
-    "username": "expres-mvp-dbuser",
+    "username": "express-mvp-dbuser",
     "password": "123456",
     "database": "express-mvp-db",
     "host": "127.0.0.1",
