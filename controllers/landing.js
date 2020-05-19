@@ -48,7 +48,7 @@ exports.show_edit_message= function(req,res,next){
 }
 
 
-//show post method for message
+//post method for message
 exports.edit_message= function(req,res,next){
     return models.Message.update({
             message: req.body.submit_edit_message
@@ -61,6 +61,15 @@ exports.edit_message= function(req,res,next){
     })
 }
 
-
-
+// exports.delete_message= function(req,res,next){
+//     return models.Message.findOne({
+        
+//     }, {
+//         where: {
+//             id: req.params.message_id
+//         }
+//     }).then(result => {
+//         res.redirect('/messages')
+//     })
+// }
 

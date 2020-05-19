@@ -10,5 +10,8 @@ block content
             p= '"' + message.message + '"'
     a(href="/message/" + message.id + "/edit") Edit the Message
     p="\n"
+    //- form(action="/messages/" method="DELETE")
+    //-     button(type="submit" href="/message/" + message.id + "/delete") Delete the Message
+    //-     p="\n"
     a(href="/messages") Go Back
         
