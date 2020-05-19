@@ -71,3 +71,13 @@ exports.delete_message= function(req,res,next){
     })
 }
 
+exports.delete_message_json= function(req,res,next){
+    return models.Message.destroy({
+        where: {
+            id: req.params.message_id
+        }
+    }).then(result => {
+        res.send( {msg: "Success"})
+    })
+}
+
