@@ -1,10 +1,12 @@
 const models = require('../models')
 
+
+//get landing page with header
 exports.get_landing= function(req,res,next){
     res.render('landing', {title: 'Chatster'})
 }
 
-
+//post method for adding new chat messages
 exports.submit_chatMessage= function(req,res,next){
     // console.log("chat message:", req.body.chat_message)
     return models.Message.create({
@@ -15,22 +17,50 @@ exports.submit_chatMessage= function(req,res,next){
     })
 };
 
+//show all messages on landing page
 exports.show_messages= function(req,res,next){
     models.Message.findAll().then(messages => {
-        console.log(messages)
         res.render('landing', {title: 'Chatster', messages: messages})
     })
 }
 
-exports.show_message= function(req,res,next){
-    console.log(" you got here")
 
+//show message on separate view
+exports.show_message= function(req,res,next){
     return models.Message.findOne({
         where : {
             id: req.params.message_id
         }        
     }).then(message => {
-        console.log(" you got here")
         res.render('message', { message: message});
     })
 }
+
+//show edit message page
+exports.show_edit_message= function(req,res,next){
+    return models.Message.findOne({
+        where : {
+            id: req.params.message_id
+        }        
+    }).then(message => {
+        res.render('message/edit', { message: message});
+    })
+}
+
+
+//show post method for message
+exports.edit_message= function(req,res,next){
+    return models.Message.update({
+            message: req.body.submit_edit_message
+    }, {
+        where: {
+            id: req.params.message_id
+        }
+    }).then(result => {
+        res.redirect('/message/' + req.params.message_id)
+    })
+}
+
+
+
+
