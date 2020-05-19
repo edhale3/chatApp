@@ -17,6 +17,20 @@ exports.submit_chatMessage= function(req,res,next){
 
 exports.show_messages= function(req,res,next){
     models.Message.findAll().then(messages => {
+        console.log(messages)
         res.render('landing', {title: 'Chatster', messages: messages})
+    })
+}
+
+exports.show_message= function(req,res,next){
+    console.log(" you got here")
+
+    return models.Message.findOne({
+        where : {
+            id: req.params.message_id
+        }        
+    }).then(message => {
+        console.log(" you got here")
+        res.render('message', { message: message});
     })
 }
