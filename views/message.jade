@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1= "Message\n" 
+    p This message was written on:
+    p= "\n " + message.createdAt
+    h7
+        p
+            b Message:
+            p= '"' + message.message + '"'
+        
