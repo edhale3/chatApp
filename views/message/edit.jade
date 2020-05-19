@@ -1,0 +1,11 @@
+extends ../layout 
+
+block content
+    h1= "Edit Your Message Below\n" 
+    p This message was written on:
+    p= "\n " + message.createdAt
+    b Message:
+    p= "\n"
+    form(action="/message/" + message.id + "/edit", method="POST")
+        input(name="submit_edit_message" type="text" placeholder="Enter a message" value= message.message)
+        button(type="submit") Update Message
