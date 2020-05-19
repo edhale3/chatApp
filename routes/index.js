@@ -7,5 +7,6 @@ let landing = require('../controllers/landing')
 router.get('/', landing.get_landing)
 router.post('/', landing.submit_chatMessage)
 router.get('/messages', landing.show_messages)
+router.get('/message/:message_id', landing.show_message)
 
 module.exports = router;
