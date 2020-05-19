@@ -1,17 +1,22 @@
-extends layout
-
-block content
-    h1= "Message\n" 
-    p This message was written on:
-    p= "\n " + message.createdAt
-    h7
-        p
-            b Message:
-            p= '"' + message.message + '"'
-    a(href="/message/" + message.id + "/edit") Edit the Message
-    p="\n"
-    form(action="/message/" + message.id + "/delete", method="POST")
-        button(type="submit") Delete the Message
+doctype html
+html(lang='en')
+  include common/head.jade
+  +head("Starter MVP")
+  body
+    block content
+        h1= "Message\n" 
+        p This message was written on:
+        p= "\n " + message.createdAt
+        h7
+            p
+                b Message:
+                p= '"' + message.message + '"'
+        a(href="/message/" + message.id + "/edit") Edit the Message
         p="\n"
-    a(href="/messages") Go Back
+        form(action="/message/" + message.id + "/delete", method="POST")
+            button(type="submit") Delete the Message
+            p="\n"
+        a(href="/messages") Go Back
+    include common/footer.jade
+    +footer()
         

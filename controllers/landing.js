@@ -81,3 +81,11 @@ exports.delete_message_json= function(req,res,next){
     })
 }
 
+// exports.submit_message_json= function(req,res,next){
+//     return models.Message.create({
+//         message: req.body.chat_message
+//     }).then(result => {
+//         res.send({msg: "Successfully Added Message"})
+//     })
+// }
+

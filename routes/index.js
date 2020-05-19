@@ -12,5 +12,6 @@ router.get('/message/:message_id/edit', landing.show_edit_message)
 router.post('/message/:message_id/edit', landing.edit_message)
 router.post('/message/:message_id/delete', landing.delete_message)
 router.post('/message/:message_id/delete-json', landing.delete_message_json)
+// router.post('/', landing.submit_message_json)
 
 module.exports = router;
