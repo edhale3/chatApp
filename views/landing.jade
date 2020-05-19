@@ -2,6 +2,8 @@ extends layout
 
 
 block content
+
+  
   h1= title
   
   form(action="/", method="POST")
@@ -11,12 +13,15 @@ block content
   if messages 
     for message in messages
       p= "\n"
-      h7
+      h7(id=message.id)
         span= message.message + "\n"
         a(href="/message/" + message.id) Details
-        form(action="/message/" + message.id + "/delete", method="POST")
-          button(type="submit") Delete the Message
-      
+        //- form(action="/message/" + message.id + "/delete", method="POST")
+        //-   button(type="submit") Delete the Message
+        button(onclick=`deleteMessage('${message.id}')`) Delete
+
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='/javascripts/message.js')    
 
 
 //- http://localhost:3000/message/57253dff-1a07-428a-ba35-0387f5b965cf
