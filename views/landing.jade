@@ -3,9 +3,14 @@ extends layout
 
 block content
   h1= title
-  h2= message
-
+  
   form(action="/", method="POST")
     input(name="chat_message" type="text", placeholder="Text Message")
     button(type="submit") Send It
+
+  if messages 
+    for message in messages
+      p= "\n"
+      h7= message.message
+      
 
