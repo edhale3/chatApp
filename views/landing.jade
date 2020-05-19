@@ -14,6 +14,8 @@ block content
       h7
         span= message.message + "\n"
         a(href="/message/" + message.id) Details
+        form(action="/message/" + message.id + "/delete", method="POST")
+          button(type="submit") Delete the Message
       
 
 

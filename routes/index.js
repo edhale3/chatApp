@@ -10,6 +10,6 @@ router.get('/messages', landing.show_messages)
 router.get('/message/:message_id', landing.show_message)
 router.get('/message/:message_id/edit', landing.show_edit_message)
 router.post('/message/:message_id/edit', landing.edit_message)
-// router.delete('/message/:message_id/delete', landing.delete_message)
+router.post('/message/:message_id/delete', landing.delete_message)
 
 module.exports = router;
