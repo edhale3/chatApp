@@ -8,4 +8,7 @@ block content
         p
             b Message:
             p= '"' + message.message + '"'
+    a(href="/message/" + message.id + "/edit") Edit the Message
+    p="\n"
+    a(href="/messages") Go Back
         
