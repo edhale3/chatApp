@@ -18,6 +18,8 @@ function deleteMessage(messageId){
     });
 }
 
+
+// AJAX function to add new messages asynchronously
 // function newMessage (message){
 //     $.ajax({
 //         url: '/',

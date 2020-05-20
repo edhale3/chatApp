@@ -32,7 +32,7 @@ exports.show_message= function(req,res,next){
             id: req.params.message_id
         }        
     }).then(message => {
-        res.render('message', { message: message});
+        res.render('message/message', { message: message});
     })
 }
 

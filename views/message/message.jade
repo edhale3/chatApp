@@ -1,9 +1,12 @@
 doctype html
 html(lang='en')
-  include common/head.jade
+  include ../common/head.jade
   +head("Starter MVP")
   body
     block content
+        header
+            include ../common/navbar.jade
+            +navbar()
         h1= "Message\n" 
         p This message was written on:
         p= "\n " + message.createdAt
@@ -17,6 +20,6 @@ html(lang='en')
             button(type="submit") Delete the Message
             p="\n"
         a(href="/messages") Go Back
-    include common/footer.jade
+    include ../common/footer.jade
     +footer()
         

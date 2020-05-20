@@ -1,18 +1,61 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+
 
 a {
   color: #00B7FF;
 }
 
-.table td,
+.table td {
+  padding: 0em;
+}
+
+.table {
+  border-radius: 1em;
+}
+
 .table th {
-  padding: 0 0 0 0;
+  margin: 0;
+  padding: .2em;
+  font-weight: 400;
 }
 
 #chatbox {
-  border-style: solid;
-  background-color: black;
+  background-color: rgb(157, 190, 250);
+  padding: 10 10 10 10;
+  border-radius: 1em;
+  height: 500px;
+  max-height: 500px;
+  margin-top: 20px;
+}
+
+#messages_box {
+  max-height: 445px;
+  overflow-y: auto;
+}
+
+.btn-danger {
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+}
+
+form {
+  position: absolute;
+  width:93% ;
+  bottom: 0px
+}
+
+.row {
+  justify-content: center;
+}
+
+h1 {
+  margin-top: 8px;
+  font-weight: 200;
+}
+
+body {
+  background-color: rgb(193, 106, 106) ;
+}
+
+.bg-dark {
+  background-color: rgb(177, 177, 177);
 }
