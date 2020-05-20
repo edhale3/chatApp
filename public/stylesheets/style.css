@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.table td,
+.table th {
+  padding: 0 0 0 0;
+}
+
+#chatbox {
+  border-style: solid;
+  background-color: black;
+}
