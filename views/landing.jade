@@ -32,11 +32,11 @@ html(lang='en')
                           a(href="/message/" + message.id) Details
                         td.text-right
                           button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
-            form(action="/", method="POST")
+            form(id="chat_send_form" action="/", method="POST")
               .input-group.mb-3
-               input(name="chat_message" type="text" placeholder="Text Message").form-control
+               input(id="text_form" name="chat_message" type="text" placeholder="Text Message").form-control
                .input-group-append
-                    button(type="submit").btn.btn-primary Send It
+                    button(id="send_button" type="submit").btn.btn-primary Send It
 
         include common/footer.jade
         +footer()
