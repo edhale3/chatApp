@@ -23,6 +23,7 @@ a {
   padding: 10 10 10 10;
   border-radius: 1em;
   height: 500px;
+  min-width: 300px;
   max-height: 500px;
   margin-top: 20px;
 }
@@ -37,7 +38,7 @@ a {
   padding-bottom: 1.5px;
 }
 
-form {
+#chat_send_form {
   position: absolute;
   width:93% ;
   bottom: 0px
@@ -47,7 +48,7 @@ form {
   justify-content: center;
 }
 
-h1 {
+h1,h2 {
   margin-top: 8px;
   font-weight: 200;
 }
@@ -58,4 +59,13 @@ body {
 
 .bg-dark {
   background-color: rgb(177, 177, 177);
+}
+
+#send_button {
+  border-radius: 2em;
+  margin-left: 5px;
+}
+
+#text_form {
+  border-radius: 1em;
 }
