@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport')
 var passport_local = require('passport-local');
-var bcrypt = require('bcrypt');
 var session = require('express-session');
 
 

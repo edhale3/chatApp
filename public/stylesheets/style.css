@@ -54,7 +54,7 @@ h1,h2 {
 }
 
 body {
-  background-color: rgb(208, 65, 110) ;
+  background-color:rgb(255, 142, 142) ;
 }
 
 .bg-dark {
@@ -68,4 +68,12 @@ body {
 
 #text_form {
   border-radius: 1em;
+}
+
+.jumbotron {
+  background-color: #ffffff;
+}
+
+#chatbox {
+  background-color:rgba(243, 250, 157, 0.88) ;
 }

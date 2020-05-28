@@ -41,7 +41,7 @@ module.exports = function(passport){
             } else if (user.password == null || user.password == undefined){
                 req.flash('message', 'You must reset your password')
                 return done(null, false)
-            } else if(validPassword(user,password)) {
+            } else if(!validPassword(user,password)) {
                 req.flash('message', 'Incorrect Credentials')
                 return done(null,false)
             } 
