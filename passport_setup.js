@@ -14,7 +14,7 @@ module.exports = function(passport){
     passport.deserializeUser(function(id, done){
         models.User.findOne({
             where: {
-                'id': id
+                'id' : id
             }
         }).then(user => {
             if(user == null) {
@@ -24,15 +24,15 @@ module.exports = function(passport){
         })
     });
     passport.use(new LocalStrategy({
-        usernameField: 'username', 
+        usernameField: 'email', 
         passwordField: 'password',
         passReqToCallback: true
 
     },
-    function(req, username, password, done){
+    function(req, email, password, done){
         return models.User.findOne({
             where: {
-                'username' : username
+                'email' : email
             }
         }).then(user => {
             if(user == null){
@@ -41,7 +41,7 @@ module.exports = function(passport){
             } else if (user.password == null || user.password == undefined){
                 req.flash('message', 'You must reset your password')
                 return done(null, false)
-            } else if(!validPassword(user,password)) {
+            } else if(!validPassword(user, password)) {
                 req.flash('message', 'Incorrect Credentials')
                 return done(null,false)
             } 

@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-    var User = sequelize.define('User', {
+    var Users = sequelize.define('Users', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -10,8 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: true
         },
         firstname: {
             type: DataTypes.STRING,
@@ -24,8 +23,13 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         }
     });
 
-    return User
+    return Users
 }

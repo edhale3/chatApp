@@ -26,8 +26,8 @@ const generateHash = function(password){
 
 //post method for adding new user
 exports.submit_user= function(req,res,next){
-    const newUser = models.User.build({
-        username: req.body.username,
+    const newUser = models.Users.build({
+        email: req.body.email,
         password: generateHash(req.body.password)
     });
     return newUser.save().then(result => {
