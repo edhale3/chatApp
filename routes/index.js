@@ -8,8 +8,9 @@ let user = require('../controllers/user')
 router.get('/login', user.show_login)
 router.get('/signup', user.show_signup)
 router.post('/signup', user.submit_user)
-// router.post('/login', user.login_user)
-
+router.post('/login', user.submit_login)
+router.post('/logout', user.logout)
+router.get('/logout', user.logout)
 /* GET home page. */
 router.get('/', landing.get_landing)
 router.post('/', landing.submit_chatMessage)
