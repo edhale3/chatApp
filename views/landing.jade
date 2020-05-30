@@ -1,46 +1,54 @@
 doctype html
 
 html(lang='en')
-  include common/head.jade
-  +head("Starter MVP")
+  //- include common/head.jade
+  //- +head("Starter MVP")
+  meta(charset="utf-8")
+  title= title
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  meta(name="description", content='')
+  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
+  link(rel="stylesheet" type="text/css" href="stylesheets/landing.css")
   body
     block content
       header
         include common/navbar.jade
         +navbar()
-      .container
-        .row.align-items-center
-          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
-        .row
-          .col-md-6(id="chatbox")
-            div(id="messages_box")
-              h1=title
-              if messages
-                table.table
-                  thead
-                    tr
-                      th(scope="col") Messages
-                      th(scope="col") 
-                      th(scope="col")
-                    tr
-                  tbody                    
-                    for message in messages
-                      tr(id=message.id)
-                        td
-                          span=message.message
-                        td
-                          a(href="/message/" + message.id) Details
-                        td.text-right
-                          button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
-            form(id="chat_send_form" action="/", method="POST")
-              .input-group.mb-3
-               input(id="text_form" name="chat_message" type="text" placeholder="Text Message").form-control
-               .input-group-append
-                    button(id="send_button" type="submit").btn.btn-primary Send It
+        .landing-header
+            h1 Welcome to Chatster
+      //-.container
+        //- .row.align-items-center
+        //-   .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+        //- .row
+        //-   .col-md-6(id="chatbox")
+        //-     div(id="messages_box")
+        //-       h1=title
+        //-       if messages
+        //-         table.table
+        //-           thead
+        //-             tr
+        //-               th(scope="col") Messages
+        //-               th(scope="col") 
+        //-               th(scope="col")
+        //-             tr
+        //-           tbody                    
+        //-             for message in messages
+        //-               tr(id=message.id)
+        //-                 td
+        //-                   span=message.message
+        //-                 td
+        //-                   a(href="/message/" + message.id) Details
+        //-                 td.text-right
+        //-                   button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
+        //-     form(id="chat_send_form" action="/", method="POST")
+        //-       .input-group.mb-3
+        //-        input(id="text_form" name="chat_message" type="text" placeholder="Text Message").form-control
+        //-        .input-group-append
+        //-             button(id="send_button" type="submit").btn.btn-primary Send It
 
-        include common/footer.jade
-        +footer()
-        script(src='/javascripts/message.js')  
+      include common/footer.jade
+      +footer()
+      script(src='/javascripts/message.js')  
 
             //- button(onclick=`newMessage('${message.message}')`) Submit
 
