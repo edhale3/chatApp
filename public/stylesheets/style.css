@@ -36,6 +36,7 @@ a {
 .btn-danger {
   padding-top: 1.5px;
   padding-bottom: 1.5px;
+  border-radius: 2em;
 }
 
 #chat_send_form {
@@ -64,6 +65,8 @@ body {
 #send_button {
   border-radius: 2em;
   margin-left: 5px;
+  background-color: #50dcdc;
+  border-style: hidden;
 }
 
 #text_form {
@@ -72,8 +75,20 @@ body {
 
 .jumbotron {
   background-color: #ffffff;
+  border-style: hidden;
 }
 
 #chatbox {
   background-color:rgba(243, 250, 157, 0.88) ;
+}
+
+.landing-header {
+  color: #fff
+}
+
+.landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
 }
