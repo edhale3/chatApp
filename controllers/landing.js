@@ -20,7 +20,7 @@ exports.submit_chatMessage= function(req,res,next){
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
     models.Message.findAll().then(messages => {
-        res.render('landing', {title: 'Chatster', messages: messages})
+        res.render('messages', {title: 'Chatster', messages: messages})
     })
 }
 

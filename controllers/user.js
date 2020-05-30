@@ -17,7 +17,11 @@ exports.show_signup= function(req,res,next){
 
 //post method for signing into the application
 exports.submit_login= function(req,res,next) {
-
+    passport.authenticate('local', {
+        successRedirect: "/",
+        failureRedirect: "/login",
+        failureFlash: true
+    })(req,res,next)
 }
 
 const generateHash = function(password){
@@ -38,3 +42,10 @@ exports.submit_user= function(req,res,next){
         })(req,res,next)
     })
 };
+
+exports.logout= function(req,res,next){
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
+    console.log("Session ended")
+}
