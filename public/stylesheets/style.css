@@ -1,21 +1,32 @@
 
 
-a {
-  color: #00B7FF;
+.btn-primary {
+  color: #ffffff;
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+  border-radius: 2em;
+  margin-right: 2px;
 }
 
 .table td {
   padding: 0em;
+  padding-top: .5em;
+  padding-left: .5em;
+  border-width: 4px;
+  border-style: hidden;
 }
 
 .table {
   border-radius: 1em;
+  background-color: white;
 }
 
 .table th {
   margin: 0;
   padding: .2em;
   font-weight: 400;
+  border-width: 4px;
+  border-color: #c7cce8;
 }
 
 #chatbox {
@@ -31,12 +42,16 @@ a {
 #messages_box {
   max-height: 445px;
   overflow-y: auto;
+  background-color: white;
+  border-radius: .5em;
+  height: 75%;
 }
 
 .btn-danger {
   padding-top: 1.5px;
   padding-bottom: 1.5px;
   border-radius: 2em;
+  margin-right: 2px;
 }
 
 #chat_send_form {
@@ -55,7 +70,7 @@ h1,h2 {
 }
 
 body {
-  background-color:rgb(255, 142, 142) ;
+  background-color:#39719a ;
 }
 
 .bg-dark {
@@ -63,32 +78,34 @@ body {
 }
 
 #send_button {
-  border-radius: 2em;
+  border-radius: .5em;
   margin-left: 5px;
-  background-color: #50dcdc;
+  background-color: #7a2311;
   border-style: hidden;
 }
 
 #text_form {
-  border-radius: 1em;
+  border-radius: .5em;
 }
 
 .jumbotron {
   background-color: #ffffff;
-  border-style: hidden;
 }
 
 #chatbox {
-  background-color:rgba(243, 250, 157, 0.88) ;
+  background-color:#c7cce8;
+  margin: auto;
+  margin-top: 20px;
 }
 
-.landing-header {
-  color: #fff
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: hidden;
 }
 
-.landing-header {
-  z-index: 1;
-  position: relative;
-  text-align: center;
-  padding-top: 40vh;
+span {
+  background-color: #007bff;
+  color:white;
+  border-radius: 1em;
+  padding: .5em;
 }
