@@ -6,9 +6,10 @@
     z-index: 1;
     position: relative;
     text-align: center;
-    padding-top: 20vh;
+    padding-top: 14vh;
     padding-left: 65vh;
-    font-weight: 200;
+    font-weight: 100;
+    font-size: 7em;
 }
 
 body {
