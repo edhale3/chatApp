@@ -21,7 +21,7 @@ exports.submit_login= function(req,res,next) {
         successRedirect: "/",
         failureRedirect: "/login",
         failureFlash: true
-    })(req,res,next)
+    })(req,res,next);
 }
 
 const generateHash = function(password){
@@ -46,6 +46,6 @@ exports.submit_user= function(req,res,next){
 exports.logout= function(req,res,next){
     req.logout();
     req.session.destroy();
-    res.redirect('/');
-    console.log("Session ended")
+    res.redirect('/login');
+    console.log("Session ended here")
 }

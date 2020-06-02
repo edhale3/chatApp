@@ -3,7 +3,7 @@ const models = require('../models')
 
 //get landing page with header
 exports.get_landing= function(req,res,next){
-    res.render('landing', {title: 'Chatster'})
+    res.render('landing', {title: 'Chatster', user: req.user})
 }
 
 //post method for adding new chat messages
