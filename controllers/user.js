@@ -6,6 +6,7 @@ let flash = require('connect-flash')
 
 const { isEmpty} = require('lodash');
 const { validateUser } = require('../validators/signup');
+const { validateLogin } = require('../validators/login');
 
 //show login page
 exports.show_login= function(req,res,next){
@@ -21,13 +22,29 @@ const rerender_signup= function(errors, req,res,next){
     res.render('user/signup', {formData: req.body, errors:errors });
 }
 
+const rerender_login= function(errors, req,res,next){
+    res.render('user/login', {formData: req.body, errors:errors });
+}
+
 //post method for signing into the application
 exports.submit_login= function(req,res,next) {
-    passport.authenticate('local', {
-        successRedirect: "/",
-        failureRedirect: "/login",
-        failureFlash: true
-    })(req,res,next);
+    let errors = {};
+    return validateLogin(errors, req).then(errors=> {
+        if(!isEmpty(errors)){
+            rerender_login(errors, req,res,next);
+        } else {
+            passport.authenticate('local', {
+                successRedirect: "/messages",
+                failureRedirect: "/login",
+                failureFlash: true
+            })(req,res,next);
+        }
+    })
+    // passport.authenticate('local', {
+    //     successRedirect: "/",
+    //     failureRedirect: "/login",
+    //     failureFlash: true
+    // })(req,res,next);
 }
 
 const generateHash = function(password){

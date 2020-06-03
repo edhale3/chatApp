@@ -21,6 +21,10 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING
             },
+            email: {
+                type: Sequelize.STRING,
+                allowNull: false
+            }
         });
     },
     down: (queryInterface, Sequelize) => {
