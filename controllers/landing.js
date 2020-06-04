@@ -16,6 +16,18 @@ exports.submit_chatMessage= function(req,res,next){
     })
 };
 
+// exports.submit_chatMessage_json= function(req,res,next){
+//     return models.Message.create({
+//         where: {
+//             message: req.body.chat_message,
+//             email: req.user.email
+//         }
+//     }).then(result => {
+//         res.send( {msg: "Success"})
+//     })
+// }
+
+
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
     models.Message.findAll().then(messages => {
