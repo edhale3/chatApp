@@ -10,6 +10,8 @@ html(lang="en")
                     .row
                         .col-sm-12.offset-md-2.col-md-8(id="chatbox")
                             .jumbotron
+                                if flash
+                                    p.small.text-danger #{flash}
                                 h2.text-center Create Chatster Account!
                                 .row
                                     .col-sm-12.col-md-12

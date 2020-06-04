@@ -17,21 +17,28 @@ html(lang='en')
                     div(id="messages_box")
                         if messages
                             table.table
-                                //- thead
-                                //-     tr
-                                //-         th(scope="col") Messages
-                                //-         th(scope="col") 
-                                //-         th(scope="col")
-                                //-     tr
                                 tbody                    
                                     for message in messages
-                                        tr(id=message.id)
-                                            td
-                                                span=message.message
-                                                span=message.email
-                                            td.text-right
-                                                a(href="/message/" + message.id).btn.btn-primary Edit
-                                                button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
+                                        if user.email == message.email
+                                            div(id=message.id)
+                                                div
+                                                    //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
+                                                    //- a(href="/message/" + message.id).btn.btn-primary Edit
+                                                div.text-right
+                                                    .currentUser
+                                                        p=user.email
+                                                        .currentMessages
+                                                            div=message.message
+                                        else
+                                            div(id=message.id)
+                                                div
+                                                    .otherUsers
+                                                        p=message.email
+                                                        .otherMessages
+                                                            span=message.message
+                                                //- div
+                                                    //- a(href="/message/" + message.id).btn.btn-primary Edit
+                                                    //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
                         form(id="chat_send_form" action="/", method="POST")
                             .input-group.mb-3
                               input(id="text_form" name="chat_message" type="text" placeholder="Text Message").form-control

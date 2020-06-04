@@ -8,7 +8,8 @@ mixin navbar(user)
                 li.nav-item.active
                     a.nav-link(href="/") Home
                 li.nav-item.active
-                    a.nav-link(href="/messages") Messages
+                    if user
+                        a.nav-link(href="/messages") Messages
             if user
                 .navbar-right
                     span.navbar-text Hello #{user.email}
