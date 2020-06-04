@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            defaultValue: "hello"
         }
     });
-    sequelize.sync();
     return Message
 }

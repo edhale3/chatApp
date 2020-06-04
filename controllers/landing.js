@@ -8,12 +8,10 @@ exports.get_landing= function(req,res,next){
 
 //post method for adding new chat messages
 exports.submit_chatMessage= function(req,res,next){
-    // console.log("chat message:", req.body.chat_message)
     return models.Message.create({
         message: req.body.chat_message,
-        email: req.user
+        email: req.user.email
     }).then(message => {
-        // res.render('landing', {title: 'Chatster', message: `${req.body.chat_message}`})
         res.redirect('/messages');
     })
 };
@@ -81,12 +79,3 @@ exports.delete_message_json= function(req,res,next){
         res.send( {msg: "Success"})
     })
 }
-
-// exports.submit_message_json= function(req,res,next){
-//     return models.Message.create({
-//         message: req.body.chat_message
-//     }).then(result => {
-//         res.send({msg: "Successfully Added Message"})
-//     })
-// }
-

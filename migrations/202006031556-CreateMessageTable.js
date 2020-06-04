@@ -23,7 +23,8 @@ module.exports = {
             },
             email: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                defaultValue: "hello"
             }
         });
     },
@@ -31,3 +32,4 @@ module.exports = {
         return queryInterface.dropTable('Message')
     }
 };
+xx

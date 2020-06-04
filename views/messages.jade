@@ -28,6 +28,7 @@ html(lang='en')
                                         tr(id=message.id)
                                             td
                                                 span=message.message
+                                                span=message.email
                                             td.text-right
                                                 a(href="/message/" + message.id).btn.btn-primary Edit
                                                 button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
