@@ -1,0 +1,25 @@
+doctype html
+
+html(lang='en')
+  include common/head.jade
+  +head("Starter MVP")
+  body
+    block content
+      header
+        include common/navbar.jade
+        +navbar(user)
+        .container
+            .row.align-items-center
+                .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            .row
+                .col-md-6(id="chatbox")
+                    h1=account
+                    p This account was created on:
+                    p
+                      for column in user.dataValues
+                        p=column
+                    b Email:
+                    p= "\n"
+
+    include common/footer.jade
+    +footer()

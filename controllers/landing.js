@@ -91,3 +91,25 @@ exports.delete_message_json= function(req,res,next){
         res.send( {msg: "Success"})
     })
 }
+
+exports.show_account= function(req,res,next){
+    console.log(req.params)
+    return models.Users.findOne({
+        where : {
+            email: req.params.user_email
+        }        
+    }).then(user => {
+        console.log("you actually got here")
+        res.render('profile', { account: user.email, user: req.user});
+    })
+}
+
+// exports.show_message= function(req,res,next){
+//     return models.Message.findOne({
+//         where : {
+//             id: req.params.message_id
+//         }        
+//     }).then(message => {
+//         res.render('message/message', { message: message});
+//     })
+// }

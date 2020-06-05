@@ -26,7 +26,8 @@ html(lang='en')
                                                     //- a(href="/message/" + message.id).btn.btn-primary Edit
                                                 div.text-right
                                                     .currentUser
-                                                        p=user.email
+                                                        p
+                                                            a(href="/account/" + user.email)=user.email
                                                         .currentMessages
                                                             div=message.message
                                         else
