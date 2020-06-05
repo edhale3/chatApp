@@ -10,4 +10,5 @@ This application is built using:
 To start application:
     -Download zip file
     -Open Terminal and navigate to app dir
-    -Run "DEBUG=[app_dir_name_chatApp]:* npm start" using npm 
+    -Run "DEBUG=[app_dir_name_chatApp]:* npm start" using npm
+    - open localhost:3000 in browser
