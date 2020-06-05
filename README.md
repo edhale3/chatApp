@@ -12,3 +12,4 @@ To start application:
     -Open Terminal and navigate to app dir
     -Run "DEBUG=[app_dir_name_chatApp]:* npm start" using npm
     - open localhost:3000 in browser
+    note: run "DEBUG=chatApp:* npx nodemon start" if you want to run application with nodemon
