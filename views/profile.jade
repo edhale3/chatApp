@@ -13,10 +13,10 @@ html(lang='en')
                 .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
             .row
                 .col-md-6(id="chatbox")
-                    h1=account
+                    h1=account.email
                     p This account was created on:
                     p
-                      for column in user.dataValues
+                      for column in account.dataValues
                         p=column
                     b Email:
                     p= "\n"

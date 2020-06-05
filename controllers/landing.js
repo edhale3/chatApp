@@ -99,8 +99,9 @@ exports.show_account= function(req,res,next){
             email: req.params.user_email
         }        
     }).then(user => {
-        console.log("you actually got here")
-        res.render('profile', { account: user.email, user: req.user});
+        console.log(req.params)
+        console.log(user)
+        res.render('profile', { account: user, user: req.user});
     })
 }
 

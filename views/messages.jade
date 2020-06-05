@@ -34,7 +34,8 @@ html(lang='en')
                                             div(id=message.id)
                                                 div
                                                     .otherUsers
-                                                        p=message.email
+                                                        p
+                                                            a(href="/account/" + message.email)=message.email
                                                         .otherMessages
                                                             span=message.message
                                                 //- div
