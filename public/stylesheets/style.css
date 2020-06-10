@@ -168,3 +168,11 @@ html {
   margin-left: 6px;
   margin-right: 6px;
 }
+
+.navbar-light .navbar-text {
+  color: rgb(0, 0, 0, 0.9);
+}
+
+nav {
+  color:black;
+}

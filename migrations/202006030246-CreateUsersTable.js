@@ -37,7 +37,11 @@ module.exports = {
             email: {
                 allowNull: false,
                 type: Sequelize.STRING
-            }
+            },
+            // picture: {
+            //     type: Sequelize.BLOB,
+            //     allowNull: true
+            // }
         });
     },
     down: (queryInterface, Sequelize) => {

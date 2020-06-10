@@ -14,12 +14,10 @@ html(lang='en')
             .row
                 .col-md-6(id="chatbox")
                     h1=account.email
-                    p This account was created on:
                     p
                       for column in account.dataValues
                         p=column
-                    b Email:
-                    p= "\n"
+
 
     include common/footer.jade
     +footer()

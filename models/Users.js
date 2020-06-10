@@ -28,8 +28,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
-        }
-    });
+        },
+        // picture: {
+        //     type: DataTypes.BLOB,
+        //     allowNull: true
+        // }
+        // birthday: {
+        //     type: DataTypes.STRING,
+        //     allowNull:true
+        // },
 
+    });
+    console.log(DataTypes)
     return Users
 }

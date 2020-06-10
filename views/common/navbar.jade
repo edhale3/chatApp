@@ -12,7 +12,8 @@ mixin navbar(user)
                         a.nav-link(href="/messages") Messages
             if user
                 .navbar-right
-                    span.navbar-text Hello #{user.email}
+                    .navbar-text Hello 
+                        a(href="/account/" + user.email) #{user.email}
                 .navbar-right
                     ul.navbar-nav.mr-auto    
                         li.nav-item.active

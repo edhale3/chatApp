@@ -19,7 +19,7 @@ module.exports = {
             },
             message: {
                 allowNull: false,
-                type: Sequelize.STRING
+                type: Sequelize.BLOB
             },
             email: {
                 type: Sequelize.STRING,
@@ -32,4 +32,3 @@ module.exports = {
         return queryInterface.dropTable('Message')
     }
 };
-xx

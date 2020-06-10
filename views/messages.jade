@@ -28,8 +28,8 @@ html(lang='en')
                                                     .currentUser
                                                         p
                                                             a(href="/account/" + user.email)=user.email
-                                                        .currentMessages
-                                                            div=message.message
+                                                        .currentMessages    
+                                                            span=message.message
                                         else
                                             div(id=message.id)
                                                 div
@@ -52,3 +52,5 @@ html(lang='en')
         script(src='/javascripts/message.js')  
 
             //- button(onclick=`newMessage('${message.message}')`) Submit
+
+            //-   input(type="file"  accept="image/gif, image/jpeg, image/png" name="chat_message" id="file")
