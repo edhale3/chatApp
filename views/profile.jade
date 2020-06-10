@@ -20,7 +20,7 @@ html(lang='en')
                         p=column
                     b Email:
                     p= "\n"
-                    form(action="/account/" + account.email, method="POST")
+                    form(action="/account/" + account.id, method="POST")
                       .input-group.mb-3
                         input(id="email_form" name="email" type="email" placeholder="Email" value=account.email).form-control
                         .input-group-append

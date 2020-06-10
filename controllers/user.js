@@ -78,11 +78,11 @@ exports.edit_profile= function(req,res,next){
             email: req.body.email
     }, {
         where: {
-            email: req.params.user_email
+            id: req.params.user_id
         }
     }).then(result => {
-        console.log(req.body)
-        res.redirect('/messages')
+        console.log(req.params)
+        res.redirect('/account/' + req.params.user_id)
     })
 }
 
