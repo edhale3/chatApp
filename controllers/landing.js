@@ -10,7 +10,8 @@ exports.get_landing= function(req,res,next){
 exports.submit_chatMessage= function(req,res,next){
     return models.Message.create({
         message: req.body.chat_message,
-        email: req.user.email
+        email: req.user.email,
+        user_id: req.user.id
     }).then(message => {
         res.redirect('/messages');
     })
@@ -31,6 +32,8 @@ exports.submit_chatMessage= function(req,res,next){
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
     models.Message.findAll().then(messages => {
+        console.log(messages)
+        console.log(req.user)
         res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
     })
 }
@@ -96,7 +99,7 @@ exports.show_account= function(req,res,next){
     console.log(req.params)
     return models.Users.findOne({
         where : {
-            email: req.params.user_email
+            id: req.params.user_id
         }        
     }).then(user => {
         console.log(req.params)

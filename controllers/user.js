@@ -73,6 +73,19 @@ exports.submit_user= function(req,res,next){
     })
 };
 
+exports.edit_profile= function(req,res,next){
+    return models.Users.update({
+            email: req.body.email
+    }, {
+        where: {
+            email: req.params.user_email
+        }
+    }).then(result => {
+        console.log(req.body)
+        res.redirect('/messages')
+    })
+}
+
 exports.logout= function(req,res,next){
     req.logout();
     req.session.destroy();
