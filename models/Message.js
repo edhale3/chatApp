@@ -12,10 +12,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.UUID,
             allowNull: false,
-            defaultValue: "hello"
         }
     });
     return Message
