@@ -19,7 +19,7 @@ html(lang='en')
                             table.table
                                 tbody                    
                                     for message in messages
-                                        if user.email == message.email
+                                        if user.id == message.user_id
                                             div(id=message.id)
                                                 div
                                                     //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
@@ -27,7 +27,7 @@ html(lang='en')
                                                 div.text-right
                                                     .currentUser
                                                         p
-                                                            a(href="/account/" + user.email)=user.email
+                                                            a(href="/account/" + message.user_id)=message.user_id
                                                         .currentMessages
                                                             div=message.message
                                         else
@@ -35,13 +35,13 @@ html(lang='en')
                                                 div
                                                     .otherUsers
                                                         p
-                                                            a(href="/account/" + message.email)=message.email
+                                                            a(href="/account/" + message.user_id)=message.user_id
                                                         .otherMessages
                                                             span=message.message
                                                 //- div
                                                     //- a(href="/message/" + message.id).btn.btn-primary Edit
                                                     //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
-                        form(id="chat_send_form" action="/", method="POST")
+                        form(id="chat_send_form" action="/messages", method="POST")
                             .input-group.mb-3
                               input(id="text_form" name="chat_message" type="text" placeholder="Text Message").form-control
                               .input-group-append
