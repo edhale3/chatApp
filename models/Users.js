@@ -28,8 +28,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        messages: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:"MESSAGE HERE"
         }
     });
+
+    Users.associate = (models) => {
+        Users.hasMany(models.Message, { foreignKey: 'user_id'})
+    }
 
     return Users
 }

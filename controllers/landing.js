@@ -10,7 +10,6 @@ exports.get_landing= function(req,res,next){
 exports.submit_chatMessage= function(req,res,next){
     return models.Message.create({
         message: req.body.chat_message,
-        email: req.user.email,
         user_id: req.user.id
     }).then(message => {
         res.redirect('/messages');
@@ -31,9 +30,41 @@ exports.submit_chatMessage= function(req,res,next){
 
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
-    models.Message.findAll().then(messages => {
-        res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
+    console.log("first")
+    console.log(models.Message)
+    models.Users.findAll({
+        include: [
+            {
+                model: models.Message
+            }
+        ]
+    }).then(users => {
+        console.log(users)
+        console.log("second")
+        const objUser = users.map(user => {
+            console.log(user)
+            return Object.assign({},
+                {
+                    id: user.id,
+                    email: user.email,
+                    messages: user.messages.map(message => {
+                        console.log(message)
+                        return Object.assign({},
+                            {
+                                id: message.id,
+                                message: message.message
+                            }
+                        )
+                    })
+                }    
+            )
+        })
+        console.log(objUser)
     })
+
+    // models.Message.findAll().then(messages => {
+    //     res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
+    // })
 }
 
 

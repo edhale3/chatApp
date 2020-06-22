@@ -37,6 +37,11 @@ module.exports = {
             email: {
                 allowNull: false,
                 type: Sequelize.STRING
+            },
+            messages: {
+                type: Sequelize.STRING,
+                allowNull: true,
+                defaultValue: "MESSAGE HERE"
             }
         });
     },
