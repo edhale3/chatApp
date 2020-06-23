@@ -12,14 +12,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_id: {
+        email: {
             type: DataTypes.UUID,
             allowNull: false,
         }
     });
 
-    Message.associate = (models) => {
-        Message.belongsTo(models.Users, {foreignKey: 'user_id'})
-    }
+    // Message.associate = (models) => {
+    //     Message.belongsTo(models.Users, {foreignKey: 'user_id'})
+    // }
     return Message
 }

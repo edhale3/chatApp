@@ -42,13 +42,13 @@ exports.show_messages= function(req,res,next){
         console.log(users)
         console.log("second")
         const objUser = users.map(user => {
-            console.log(user)
+            console.log('user', user)
             return Object.assign({},
                 {
                     id: user.id,
                     email: user.email,
-                    messages: user.messages.map(message => {
-                        console.log(message)
+                    messages: user.Messages.map(message => {
+                        console.log( 'message',message)
                         return Object.assign({},
                             {
                                 id: message.id,

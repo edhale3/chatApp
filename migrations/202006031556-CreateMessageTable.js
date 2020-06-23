@@ -21,7 +21,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING
             },
-            user_id: {
+            email: {
                 type: Sequelize.UUID,
                 allowNull: false
             }
@@ -31,4 +31,3 @@ module.exports = {
         return queryInterface.dropTable('Message')
     }
 };
-xx
