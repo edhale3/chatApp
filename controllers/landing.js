@@ -128,7 +128,12 @@ exports.show_account= function(req,res,next){
             id: req.params.user_id
         }        
     }).then(user => {
-        res.render('profile', { account: user, user: req.user});
+        let changeable = false;
+        if(user.id == req.user.id){
+            changeable = true;
+        }
+        console.log(user)
+        res.render('profile', { account: user, user: req.user, changeable});
     })
 }
 
