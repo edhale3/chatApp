@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: true
         },
+<<<<<<< HEAD
         messages: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -42,5 +43,18 @@ module.exports = (sequelize, DataTypes) => {
         Users.hasMany(models.Message, {foreignKey: 'user_id'})
     }
 
+=======
+        // picture: {
+        //     type: DataTypes.BLOB,
+        //     allowNull: true
+        // }
+        // birthday: {
+        //     type: DataTypes.STRING,
+        //     allowNull:true
+        // },
+
+    });
+    console.log(DataTypes)
+>>>>>>> master
     return Users
 }

@@ -8,6 +8,7 @@ exports.get_landing= function(req,res,next){
 
 //post method for adding new chat messages
 exports.submit_chatMessage= function(req,res,next){
+    console.log(req.body.chat_message[1])
     return models.Message.create({
         message: req.body.chat_message,
         user_id: req.user.id

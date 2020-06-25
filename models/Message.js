@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         message: {
-            type: DataTypes.STRING,
+            type: DataTypes.BLOB,
             allowNull: false
         },
         email: {

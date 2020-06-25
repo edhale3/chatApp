@@ -40,11 +40,18 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING
             },
+<<<<<<< HEAD
             messages: {
                 type: Sequelize.STRING,
                 allowNull: true,
                 defaultValue: "MESSAGE HERE"
             }
+=======
+            // picture: {
+            //     type: Sequelize.BLOB,
+            //     allowNull: true
+            // }
+>>>>>>> master
         });
     },
     down: (queryInterface, Sequelize) => {
