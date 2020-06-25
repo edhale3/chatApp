@@ -54,7 +54,7 @@ exports.show_messages= function(req,res,next){
             )
         })
         models.Message.findAll().then(messages => {
-            res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
+            res.render('messages', {title: 'Chatster', messages: messages, user: req.user, allUsers: users})
         })
         // console.log(typeof userObj, userObj)
         // res.render('messages', {title: 'Chatster', users: users, currentUser: req.user})

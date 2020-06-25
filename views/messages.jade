@@ -27,17 +27,19 @@ html(lang='en')
                                                 div.text-right
                                                     .currentUser
                                                         p
-                                                            a(href="/account/" + message.user_id)=message.user_id
+                                                            a(href="/account/" + message.user_id)=user.email
                                                         .currentMessages
                                                             div=message.message
                                         else
-                                            div(id=message.id)
-                                                div
-                                                    .otherUsers
-                                                        p
-                                                            a(href="/account/" + message.user_id)=message.user_id
-                                                        .otherMessages
-                                                            span=message.message
+                                            for u in allUsers
+                                                if u.id == message.user_id
+                                                    div(id=message.id)
+                                                        div
+                                                            .otherUsers
+                                                                p
+                                                                    a(href="/account/" + message.user_id)=u.email
+                                                                .otherMessages
+                                                                    span=message.message
                                                 //- div
                                                     //- a(href="/message/" + message.id).btn.btn-primary Edit
                                                     //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
