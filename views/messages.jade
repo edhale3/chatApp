@@ -19,26 +19,25 @@ html(lang='en')
                             table.table
                                 tbody                    
                                     for message in messages
-                                        for text in message
-                                            if user.id == message.id
-                                                div(id=message.id)
-                                                    div
-                                                        //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
-                                                        //- a(href="/message/" + message.id).btn.btn-primary Edit
-                                                    div.text-right
-                                                        .currentUser
-                                                            p
-                                                                a(href="/account/" + message.user_id)=text.id
-                                                            .currentMessages
-                                                                div=text.message
-                                            else
-                                                div(id=message.id)
-                                                    div
-                                                        .otherUsers
-                                                            p
-                                                                a(href="/account/" + message.user_id)=message.user_id
-                                                            .otherMessages
-                                                                span=message.text
+                                        if user.id == message.user_id
+                                            div(id=message.id)
+                                                div
+                                                    //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
+                                                    //- a(href="/message/" + message.id).btn.btn-primary Edit
+                                                div.text-right
+                                                    .currentUser
+                                                        p
+                                                            a(href="/account/" + message.user_id)=message.user_id
+                                                        .currentMessages
+                                                            div=message.message
+                                        else
+                                            div(id=message.id)
+                                                div
+                                                    .otherUsers
+                                                        p
+                                                            a(href="/account/" + message.user_id)=message.user_id
+                                                        .otherMessages
+                                                            span=message.message
                                                 //- div
                                                     //- a(href="/message/" + message.id).btn.btn-primary Edit
                                                     //- button(onclick=`deleteMessage('${message.id}')`).btn.btn-danger Delete
