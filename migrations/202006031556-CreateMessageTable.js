@@ -19,17 +19,19 @@ module.exports = {
             },
             message: {
                 allowNull: false,
-                type: Sequelize.STRING
+                type: Sequelize.BLOB
             },
             email: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                defaultValue: "hello"
+                type: Sequelize.UUID,
+                allowNull: true
             }
         });
     },
     down: (queryInterface, Sequelize) => {
         return queryInterface.dropTable('Message')
     }
+<<<<<<< HEAD
 };
-xx
+=======
+};
+>>>>>>> master

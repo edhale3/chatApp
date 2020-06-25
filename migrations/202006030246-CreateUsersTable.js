@@ -23,11 +23,13 @@ module.exports = {
             },
             firstname: {
                 allowNull: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaultValue: "John"
             },
             lastname: {
                 allowNull: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaultValue: "Doe"
                 
             },
             password: {
@@ -37,7 +39,19 @@ module.exports = {
             email: {
                 allowNull: false,
                 type: Sequelize.STRING
+            },
+<<<<<<< HEAD
+            messages: {
+                type: Sequelize.STRING,
+                allowNull: true,
+                defaultValue: "MESSAGE HERE"
             }
+=======
+            // picture: {
+            //     type: Sequelize.BLOB,
+            //     allowNull: true
+            // }
+>>>>>>> master
         });
     },
     down: (queryInterface, Sequelize) => {

@@ -9,14 +9,18 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         message: {
-            type: DataTypes.STRING,
+            type: DataTypes.BLOB,
             allowNull: false
         },
         email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "hello"
+            type: DataTypes.UUID,
+            allowNull: true,
         }
     });
+
+    Message.associate = (models) => {
+        Message.belongsTo(models.Users, { foreignKey: 'user_id'})
+        //, {targetKey: 'messages'}
+    }
     return Message
 }

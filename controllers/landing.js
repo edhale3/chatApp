@@ -8,9 +8,10 @@ exports.get_landing= function(req,res,next){
 
 //post method for adding new chat messages
 exports.submit_chatMessage= function(req,res,next){
+    console.log(req.body.chat_message[1])
     return models.Message.create({
         message: req.body.chat_message,
-        email: req.user.email
+        user_id: req.user.id
     }).then(message => {
         res.redirect('/messages');
     })
@@ -30,9 +31,39 @@ exports.submit_chatMessage= function(req,res,next){
 
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
-    models.Message.findAll().then(messages => {
-        res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
+    models.Users.findAll({
+        include: [
+            {
+                model: models.Message
+            }
+        ]
+    }).then(users => {
+        const userObj = users.map(user => {
+            return Object.assign({},
+                {
+                    id: user.id,
+                    email: user.email,
+                    messages: user.Messages.map(message => {
+                        return Object.assign({},
+                            {
+                                id: message.id,
+                                message: message.message
+                            }
+                        )
+                    })
+                }    
+            )
+        })
+        models.Message.findAll().then(messages => {
+            res.render('messages', {title: 'Chatster', messages: messages, user: req.user, allUsers: users})
+        })
+        // console.log(typeof userObj, userObj)
+        // res.render('messages', {title: 'Chatster', users: users, currentUser: req.user})
     })
+
+    // models.Message.findAll().then(messages => {
+    //     res.render('messages', {title: 'Chatster', messages: messages, user: req.user})
+    // })
 }
 
 
@@ -93,15 +124,17 @@ exports.delete_message_json= function(req,res,next){
 }
 
 exports.show_account= function(req,res,next){
-    console.log(req.params)
     return models.Users.findOne({
         where : {
-            email: req.params.user_email
+            id: req.params.user_id
         }        
     }).then(user => {
-        console.log(req.params)
+        let changeable = false;
+        if(user.id == req.user.id){
+            changeable = true;
+        }
         console.log(user)
-        res.render('profile', { account: user, user: req.user});
+        res.render('profile', { account: user, user: req.user, changeable});
     })
 }
 

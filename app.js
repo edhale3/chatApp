@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let passport = require('passport');
 var session = require('express-session');
+const methodOverride = require('method-override');
 
 // var passport_local = require('passport-local');
 var indexRouter = require('./routes/index');
@@ -12,6 +13,7 @@ var indexRouter = require('./routes/index');
 
 require('./passport_setup')(passport);
 var app = express();
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

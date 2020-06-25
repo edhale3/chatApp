@@ -14,11 +14,13 @@ module.exports = (sequelize, DataTypes) => {
         },
         firstname: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue: "Hue Ja"
         },
         lastname: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue: "Dick"
         },
         password: {
             type: DataTypes.STRING,
@@ -28,8 +30,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        messages: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:"MESSAGE HERE"
         }
     });
+
+    Users.associate = (models) => {
+        Users.hasMany(models.Message, {foreignKey: 'user_id'})
+    }
 
     return Users
 }

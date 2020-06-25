@@ -42,3 +42,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.navbar-light .navbar-text {
+    color: rgb(0, 0, 0, 0.9);
+  }

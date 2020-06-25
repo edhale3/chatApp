@@ -73,6 +73,24 @@ exports.submit_user= function(req,res,next){
     })
 };
 
+exports.edit_profile= function(req,res,next){
+    console.log(req.body)
+    return models.Users.update({
+            email: req.body.email,
+            firstname: req.body.f_name,
+            lastname: req.body.l_name
+    }, {
+        where: {
+            id: req.params.user_id
+        }
+    }).then(result => {
+        if(req.session.passport.user == req.params.user_id){
+            res.redirect('/account/' + req.params.user_id)
+        } 
+        // console.log('req ',req.session.passport)
+    })
+}
+
 exports.logout= function(req,res,next){
     req.logout();
     req.session.destroy();
