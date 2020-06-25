@@ -23,7 +23,7 @@ module.exports = {
             },
             email: {
                 type: Sequelize.UUID,
-                allowNull: false
+                allowNull: true
             }
         });
     },

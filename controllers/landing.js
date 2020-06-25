@@ -31,7 +31,7 @@ exports.submit_chatMessage= function(req,res,next){
 //show all messages on landing page
 exports.show_messages= function(req,res,next){
     console.log("first")
-    console.log(models.Message)
+    console.log(models)
     models.Users.findAll({
         include: [
             {
@@ -39,7 +39,6 @@ exports.show_messages= function(req,res,next){
             }
         ]
     }).then(users => {
-        console.log(users)
         console.log("second")
         const objUser = users.map(user => {
             console.log('user', user)
@@ -48,7 +47,7 @@ exports.show_messages= function(req,res,next){
                     id: user.id,
                     email: user.email,
                     messages: user.Messages.map(message => {
-                        console.log( 'message',message)
+                        console.log( 'message', message)
                         return Object.assign({},
                             {
                                 id: message.id,
@@ -59,7 +58,8 @@ exports.show_messages= function(req,res,next){
                 }    
             )
         })
-        console.log(objUser)
+        console.log(typeof objUser, objUser[0].messages[0])
+        res.render('messages', {title: 'Chatster', messages: objUser, user: req.user})
     })
 
     // models.Message.findAll().then(messages => {

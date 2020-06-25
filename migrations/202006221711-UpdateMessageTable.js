@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
         queryInterface.addColumn('Messages', 'user_id', {
-          type: Sequelize.DataTypes.STRING
+          type: Sequelize.DataTypes.UUID
         }, {transaction:t}),
         queryInterface.removeColumn('Messages', 'email', {transaction: t})
       ]);
