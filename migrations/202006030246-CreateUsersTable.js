@@ -23,11 +23,13 @@ module.exports = {
             },
             firstname: {
                 allowNull: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaultValue: "John"
             },
             lastname: {
                 allowNull: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaultValue: "Doe"
                 
             },
             password: {
