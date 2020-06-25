@@ -14,18 +14,20 @@ html(lang='en')
             .row
                 .col-md-6(id="chatbox")
                     h1=account.email
-                    p This account was created on:
-                    p
-                      for column in account.dataValues
-                        p=column
-                    b Email:
-                    p= "\n"
-                    form(action="/account/" + account.id + '/?_method=PUT' method="POST")
-                      input(type="hidden" name="_method" value="PUT")
-                      .input-group.mb-3
-                        input(id="email_form" name="email" type="email" placeholder="Email" value=account.email).form-control
-                        .input-group-append
-                          button(id="send_button" type="submit").btn.btn-primary Change Email Address
+                    if changeable
+                      form(action="/account/" + account.id + '/?_method=PUT' method="POST")
+                        input(type="hidden" name="_method" value="PUT")
+                        .input-group.mb-3
+                          em First Name
+                            input(id="email_form" name="f_name" type="text" placeholder="First Name" value=account.firstname).form-control
+                            .input-group-append
+                          em Last Name
+                            input(id="email_form" name="l_name" type="text" placeholder="Last Name" value=account.lastname).form-control
+                            .input-group-append
+                          em Email
+                            input(id="email_form" name="email" type="email" placeholder="Email" value=account.email).form-control
+                            .input-group-append
+                              button(id="send_button" type="submit").btn.btn-primary Update Info
 
     include common/footer.jade
     +footer()
