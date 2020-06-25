@@ -74,6 +74,7 @@ exports.submit_user= function(req,res,next){
 };
 
 exports.edit_profile= function(req,res,next){
+    console.log(req)
     return models.Users.update({
             email: req.body.email
     }, {
