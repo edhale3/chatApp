@@ -27,15 +27,9 @@ html(lang='en')
                                                 div.text-right
                                                     .currentUser
                                                         p
-<<<<<<< HEAD
                                                             a(href="/account/" + message.user_id)=user.email
                                                         .currentMessages
                                                             div=message.message
-=======
-                                                            a(href="/account/" + user.email)=user.email
-                                                        .currentMessages    
-                                                            span=message.message
->>>>>>> master
                                         else
                                             for u in allUsers
                                                 if u.id == message.user_id
